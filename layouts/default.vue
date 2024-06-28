@@ -9,7 +9,7 @@
     <body class="space-y-6 px-4 border-t-4 border-gray-700 min-h-screen">
   
       <div class="max-w-7xl mx-auto">
-        <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+        <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center mt-6">
             Nuxt3 shadcn starter by BoostPanda
         </h1>
       </div>
