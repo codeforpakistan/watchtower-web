@@ -11,13 +11,13 @@
             Elevating Digital Governance with Vigilance
         </p>
         <p class="leading-7 [&:not(:first-child)]:mt-6"> 
-            Watchtower continuously monitors and analyzes government websites to ensure top performance, accessibility, and transparency.
+            Watchtower monitors and analyzes government websites to ensure top performance, accessibility, and transparency.
         </p>
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <Button>Get Started</Button>
-          <Button variant="outline">
+        <Button @click="$router.push('/data')">Get Started</Button>
+        <Button variant="outline" @click="$router.push('/performance')">
             More Info
-            </Button>
+        </Button>
         </div>
       </div>
     </main>

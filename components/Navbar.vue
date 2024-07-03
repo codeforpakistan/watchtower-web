@@ -14,10 +14,13 @@
           </div>
           <ul class="list-style-none me-auto flex flex-col ps-0 lg:mt-1 lg:flex-row">
             <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
+              <a class="text-black dark:text-white lg:px-2" aria-current="page" href="/performance">Data</a>
+            </li>
+            <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
               <a class="text-black dark:text-white lg:px-2" aria-current="page" href="/about">About</a>
             </li>
             <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0">
-              <a class="p-0 text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2" href="/contact">Contact</a>
+              <a lass="text-black dark:text-white lg:px-2" aria-current="page" href="/contact">Contact</a>
             </li>
           </ul>
           <div class="flex items-center">
