@@ -1,5 +1,8 @@
 export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "shadcn-nuxt"],
+  colorMode: {
+    classSuffix: ''
+  },
   shadcn: {
     /**
      * Prefix for all the imported component
