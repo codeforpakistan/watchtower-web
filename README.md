@@ -1,6 +1,6 @@
-# Nuxt3 shadcn Starter
+# Watchtower
 
-I keep coming back to the [shadcn](https://www.shadcn-vue.com/) design system for Vue.js. This is a starter template for Nuxt 3 that includes the shadcn design system. 
+Watchtower is dedicated to ensuring the performance, accessibility, and transparency of government websites. Utilizing tools like Google’s Page Speed Insights API, we continuously monitor and analyze key metrics across various government portals. Our goal is to provide comprehensive reports that highlight improvements and identify areas for enhancement. Through vigilant oversight, Watchtower promotes better digital governance and fosters public trust in governmental online services.
 
 ## Setup
 
@@ -36,8 +36,8 @@ Locally preview production build:
 npm run preview
 ```
 
+## Working on it
 Check out the [nuxt documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
 
 
 Check out the [shadcn vue documentation](https://www.shadcn-vue.com/docs/installation/nuxt) for more information on how to add components and extend.
