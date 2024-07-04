@@ -1,5 +1,7 @@
 # Watchtower
 
+![Watchtower Logo](assets/images/logosm.png)
+
 Watchtower is dedicated to ensuring the performance, accessibility, and transparency of government websites. Utilizing tools like Google’s Page Speed Insights API, we continuously monitor and analyze key metrics across various government portals. Our goal is to provide comprehensive reports that highlight improvements and identify areas for enhancement. Through vigilant oversight, Watchtower promotes better digital governance and fosters public trust in governmental online services.
 
 ## Setup
