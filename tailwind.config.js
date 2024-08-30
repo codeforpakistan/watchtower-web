@@ -21,9 +21,12 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          400: '#E11D47',
+          600: '#E11D47',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -83,7 +86,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "collapsible-down": "collapsible-down 0.2s ease-in-out",
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
-        "fadeIn": "fadeIn 1s ease-out forwards",
+        "fadeIn": "fadeIn 0.5s ease-out forwards",
       },
     },
   },

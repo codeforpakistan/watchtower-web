@@ -1,37 +1,90 @@
 <template>
-  <h2
-    class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-  >
+  <h2 class="scroll-m-20 border-b text-3xl font-semibold tracking-tight transition-colors first:mt-0">
     Gov Websites Performance
   </h2>
 
-  <div>
-    <VPImage
-      alt="Dashboard"
-      width="1280"
-      height="1214"
-      class="block"
-      :image="{
-        dark: '/examples/dashboard-dark.png',
-        light: '/examples/dashboard-light.png',
-      }"
-    />
-  </div>
-
   <div class="flex-col md:flex">
-    <div class="border-b">
-      <div class="flex h-16 items-center px-4">
-        <TeamSwitcher />
-        <MainNav class="mx-6" />
-        <div class="ml-auto flex items-center space-x-4">
-          <Search />
-          <UserNav />
-        </div>
+    
+    <div v-if="showSkeleton" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-8">
+      <div v-for="n in 4" :key="n">
+        <Card>
+          <Skeleton class="h-24 w-auto bg-muted" />
+        </Card>
       </div>
     </div>
+    <div v-if="showSkeleton" class="p-8">
+      <Table>
+        <TableRow v-for="n in 12" :key="n">
+          <Skeleton class="h-6 mb-4 w-auto bg-muted" />
+        </TableRow>
+      </Table>
+    </div>
+
     <div class="flex-1 space-y-4 p-8 pt-6">
-      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
+      <div v-if="!showSkeleton" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            <div class="space-y-2">
+              <p class="text-slate-800"> Websites being monitored</p>
+              <div class="text-2xl font-bold">
+                75
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            <div class="space-y-2">
+              <p class="text-slate
+          -800"> Websites Down</p>
+              <div class="text-2xl font-bold">
+                23
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            <div class="space-y-2">
+              <p class="text-slate
+          -800"> Websites Below 90 Score</p>
+              <div class="text-2xl font-bold">
+                33
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+          </div>
+          <div
+            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            <div class="space-y-2">
+              <p class="text-slate
+          -800"> Websites with SSL issues</p>
+              <div class="text-2xl font-bold">
+                12
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <Card>
           <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle class="text-sm font-medium">
               Total Websites being monitored
@@ -54,8 +107,8 @@
               75
             </div>
           </CardContent>
-        </Card>
-        <Card>
+        </Card> 
+         <Card>
           <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle class="text-sm font-medium">
               Websites Down
@@ -129,9 +182,10 @@
               12
             </div>
           </CardContent>
-        </Card>
+        </Card> -->
       </div>
-      <Table>
+
+      <Table v-if="!showSkeleton">
         <TableCaption>Last Refreshed: {{ lastRefreshed }}</TableCaption>
         <TableHeader>
           <TableRow>
@@ -176,35 +230,43 @@ interface DocumentData {
 
 const leaderboard = ref<PerformanceItem[]>([]);
 const lastRefreshed = ref<string>('');
+const showSkeleton = ref<boolean>(true);
 
 // Function to fetch performance data from Firestore
 const fetchPerformanceData = async () => {
-  const now = new Date();
-  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-  const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  try {
+    showSkeleton.value = true;
+    const now = new Date();
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
 
-  // Query to fetch the top 3 documents based on performanceScore and responseTime
-  const q = query(
-    collection(db, 'performanceData'),
-    where('timestamp', '>=', startOfMonth),
-    where('timestamp', '<=', endOfMonth),
-    orderBy('performanceScore', 'desc'),
-    orderBy('responseTime', 'asc'),
-    limit(200)
-  );
+    // Query to fetch the top 3 documents based on performanceScore and responseTime
+    const q = query(
+      collection(db, 'performanceData'),
+      where('timestamp', '>=', startOfMonth),
+      where('timestamp', '<=', endOfMonth),
+      orderBy('performanceScore', 'desc'),
+      orderBy('responseTime', 'asc'),
+      limit(200)
+    );
 
-  const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(q);
-  
-  // Map the fetched documents to the PerformanceItem interface
-  leaderboard.value = querySnapshot.docs.map(doc => ({
-    url: doc.data().url,
-    performanceScore: doc.data().performanceScore,
-    responseTime: doc.data().responseTime,
-    timestamp: doc.data().timestamp,
-  }));
+    const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(q);
 
-  // Update the last refreshed date
-  lastRefreshed.value = new Date().toLocaleDateString();
+    // Map the fetched documents to the PerformanceItem interface
+    leaderboard.value = querySnapshot.docs.map(doc => ({
+      url: doc.data().url,
+      performanceScore: doc.data().performanceScore,
+      responseTime: doc.data().responseTime,
+      timestamp: doc.data().timestamp,
+    }));
+
+    // Update the last refreshed date
+    lastRefreshed.value = new Date().toLocaleDateString();
+    showSkeleton.value = false;
+  } catch (e) {
+    console.error(e);
+    showSkeleton.value = false;
+  }
 };
 
 // Fetch performance data when the component is mounted
