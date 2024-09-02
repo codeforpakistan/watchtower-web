@@ -68,7 +68,7 @@
       </Tooltip>
     </TooltipProvider>
   </div> -->
-  
+
   <div v-if="!showSkeleton" class="flex justify-center py-10">
     <img src="@/assets/images/podium.svg" alt="Podium" class=" md:w-1/3 md:h-1/3 sm:w-1/2 sm:h1/2" />
   </div>
@@ -83,13 +83,13 @@
   </div>
   <div v-if="!showSkeleton" class="flex flex-col items-center space-y-4">
     <Card @click="openUrl(item.url)" v-for="(item, index) in sortedLeaderboard" :key="index"
-      :class="`flex items-center bg-white rounded-lg p-5 w-96 animate-fadeIn cursor-pointer`"
+      :class="`flex items-center bg-white dark:bg-gray-800 rounded-lg p-5 w-96 animate-fadeIn cursor-pointer`"
       :style="{ animationDelay: `${index * 0.2}s` }">
       <div
         :class="`w-10 h-10 rounded-full text-white flex items-center justify-center text-xl font-bold mr-4 ${index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-500' : 'bg-yellow-900'}`">
         {{ index + 1 }}
       </div>
-      <div class="text-gray-800 font-medium">{{ item.url }}</div>
+      <div class="text-gray-800 dark:text-gray-200 font-medium">{{ item.url }}</div>
     </Card>
   </div>
 

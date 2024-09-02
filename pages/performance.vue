@@ -4,7 +4,7 @@
   </h2>
 
   <div class="flex-col md:flex">
-    
+
     <div v-if="showSkeleton" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-8">
       <div v-for="n in 4" :key="n">
         <Card>
@@ -28,10 +28,10 @@
             class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
           </div>
           <div
-            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
             <div class="space-y-2">
-              <p class="text-slate-800"> Websites being monitored</p>
-              <div class="text-2xl font-bold">
+              <p class="text-slate-800 dark:text-slate-200"> Websites being monitored</p>
+              <div class="text-2xl font-bold dark:text-white">
                 75
               </div>
             </div>
@@ -42,27 +42,24 @@
             class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
           </div>
           <div
-            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
             <div class="space-y-2">
-              <p class="text-slate
-          -800"> Websites Down</p>
-              <div class="text-2xl font-bold">
+              <p class="text-slate-800 dark:text-slate-200"> Websites Down</p>
+              <div class="text-2xl font-bold dark:text-white">
                 23
               </div>
             </div>
           </div>
         </div>
-
         <div class="relative group">
           <div
             class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
           </div>
           <div
-            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
             <div class="space-y-2">
-              <p class="text-slate
-          -800"> Websites Below 90 Score</p>
-              <div class="text-2xl font-bold">
+              <p class="text-slate-800 dark:text-slate-200"> Websites Below 90 Score</p>
+              <div class="text-2xl font-bold dark:text-white">
                 33
               </div>
             </div>
@@ -74,11 +71,10 @@
             class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
           </div>
           <div
-            class="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
             <div class="space-y-2">
-              <p class="text-slate
-          -800"> Websites with SSL issues</p>
-              <div class="text-2xl font-bold">
+              <p class="text-slate-800 dark:text-slate-200"> Websites with SSL issues</p>
+              <div class="text-2xl font-bold dark:text-white">
                 12
               </div>
             </div>
