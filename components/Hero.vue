@@ -1,5 +1,5 @@
 <template>
-  <main class="grid lg:grid-cols-2 place-items-center">
+  <div class="grid lg:grid-cols-2 place-items-center">
     <div class="py-6 md:order-1 hidden md:block">
       <img v-if="colorMode.preference !== 'dark'" src="@/assets/images/dark-tower.svg"
         alt="watchtower girl standing next to it" loading="eager" class="w-full h-auto" />
@@ -28,14 +28,14 @@
         Watchtower monitors and analyzes government websites to ensure top performance, accessibility, and transparency.
       </p>
       <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <Button size="lg" class="rounded-full" @click="$router.push('/data')">Get Started</Button>
+        <Button size="lg" class="rounded-full" @click="$router.push('/performance')">Get Started</Button>
         <Button size="lg" class="rounded-full" variant="outline" @click="$router.push('/performance')">
           More Info
         </Button>
       </div>
     </div>
 
-  </main>
+  </div>
   <div class="px-96 py-16">
     <div class="border-b ">
 

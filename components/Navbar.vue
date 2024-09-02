@@ -17,25 +17,25 @@
         :class="{ '!visible mt-2': isMenuOpen, 'hidden': !isMenuOpen, 'flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto': true }"
         id="navbarSupportedContent13">
         <div class="ms-2">
-          <a class="text-xl text-black dark:text-white" href="/">
+          <NuxtLink class="text-xl text-black dark:text-white" to="/">
             <img v-if="colorMode.preference !== 'dark'" src='@/assets/images/logo-dark.svg' alt="Logo"
               class="h-20 w-20" />
             <img v-if="colorMode.preference === 'dark'" src='@/assets/images/logo-light.svg' alt="Logo"
               class="h-20 w-20" />
-          </a>
+          </NuxtLink>
         </div>
         <ul class="list-style-none flex flex-col ps-0 lg:mt-1 lg:flex-row ml-auto mr-24">
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
-            <a :class="{ 'underline text-primary': route.path === '/performance', 'text-black dark:text-white lg:px-2': true }"
-              aria-current="page" href="/performance">Data</a>
+            <NuxtLink :class="{ 'underline text-primary': route.path === '/performance', 'text-black dark:text-white lg:px-2': true }"
+              aria-current="page" to="/performance">Data</NuxtLink>
           </li>
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
-            <a :class="{ 'underline text-primary': route.path === '/about', 'text-black dark:text-white lg:px-2': true }"
-              aria-current="page" href="/about">About</a>
+            <NuxtLink :class="{ 'underline text-primary': route.path === '/about', 'text-black dark:text-white lg:px-2': true }"
+              aria-current="page" to="/about">About</NuxtLink>
           </li>
           <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0">
-            <a :class="{ 'underline text-primary': route.path === '/contact', 'text-black dark:text-white lg:px-2': true }"
-              aria-current="page" href="/contact">Contact</a>
+            <NuxtLink :class="{ 'underline text-primary': route.path === '/contact', 'text-black dark:text-white lg:px-2': true }"
+              aria-current="page" to="/contact">Contact</NuxtLink>
           </li>
         </ul>
       </div>

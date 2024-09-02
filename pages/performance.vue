@@ -1,4 +1,5 @@
 <template>
+ <div>
   <h2 class="scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0">
     Gov Websites Performance
   </h2>
@@ -206,6 +207,7 @@
       </Table>
     </div>
   </div>
+ </div>
 </template>
 
 <script setup lang="ts">
