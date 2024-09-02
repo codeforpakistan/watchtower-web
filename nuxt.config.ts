@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "shadcn-nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "shadcn-nuxt", "@nuxt/image"],
   colorMode: {
     classSuffix: "",
   },
@@ -22,4 +22,7 @@ export default defineNuxtConfig({
       }
     },
   },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  }
 });
