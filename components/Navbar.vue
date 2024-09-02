@@ -10,7 +10,10 @@
       </button>
       <div :class="{'!visible mt-2': isMenuOpen, 'hidden': !isMenuOpen, 'flex-grow basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto': true}" id="navbarSupportedContent13">
         <div class="ms-2">
-          <a class="text-xl text-black dark:text-white" href="/"><img src="@/assets/images/logosm.png" alt="Logo" class="h-6 w-6" /></a>
+          <a class="text-xl text-black dark:text-white" href="/">
+            <img v-if="colorMode.preference !== 'dark'  " src='@/assets/images/logo-dark.svg' alt="Logo" class="h-20 w-20" />
+            <img v-if="colorMode.preference === 'dark'  " src='@/assets/images/logo-light.svg' alt="Logo" class="h-20 w-20" />
+          </a>
         </div>
         <ul class="list-style-none flex flex-col ps-0 lg:mt-1 lg:flex-row ml-auto mr-24">
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">

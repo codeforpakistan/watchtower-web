@@ -34,7 +34,13 @@
         </Button>
       </div>
     </div>
+
   </main>
+  <div class="px-96 py-16">
+    <div class="border-b ">
+
+    </div>
+</div>
 </template>
 
 

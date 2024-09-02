@@ -1,11 +1,11 @@
 <template>
-<h2 class="font-bold scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0 flex items-center">
-  <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" class="ml-2">
-		<path fill="#E11D47" d="M11.5 19v-3.754q-1.379-.102-2.399-.999t-1.278-2.258q-1.587-.187-2.705-1.301T4 8v-.385q0-.666.475-1.14T5.615 6h2.039v-.385q0-.666.474-1.14Q8.603 4 9.27 4h5.462q.666 0 1.14.475q.475.474.475 1.14V6h2.039q.666 0 1.14.475T20 7.615V8q0 1.573-1.118 2.688t-2.705 1.3q-.258 1.362-1.278 2.259t-2.399 1V19h2.616q.212 0 .356.144t.144.357t-.144.356t-.356.143H8.885q-.213 0-.357-.144t-.143-.357t.143-.356t.357-.143zm-3.846-8.084V7H5.615q-.269 0-.442.173T5 7.616V8q0 1.123.762 1.953q.761.83 1.892.963m4.35 3.353q1.38 0 2.342-.965q.962-.964.962-2.343V5.616q0-.27-.174-.443Q14.962 5 14.692 5H9.308q-.27 0-.442.173q-.174.173-.174.443v5.346q0 1.378.966 2.343q.967.964 2.347.964m4.341-3.353q1.131-.133 1.893-.963Q19 9.123 19 8v-.385q0-.269-.173-.442T18.385 7h-2.039zM12 9.635" />
-	</svg> 
-  Currently Leading 
-   
-</h2>
+  <h2 class="font-bold scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0 flex items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" class="ml-2">
+      <path fill="#E11D47"
+        d="M11.5 19v-3.754q-1.379-.102-2.399-.999t-1.278-2.258q-1.587-.187-2.705-1.301T4 8v-.385q0-.666.475-1.14T5.615 6h2.039v-.385q0-.666.474-1.14Q8.603 4 9.27 4h5.462q.666 0 1.14.475q.475.474.475 1.14V6h2.039q.666 0 1.14.475T20 7.615V8q0 1.573-1.118 2.688t-2.705 1.3q-.258 1.362-1.278 2.259t-2.399 1V19h2.616q.212 0 .356.144t.144.357t-.144.356t-.356.143H8.885q-.213 0-.357-.144t-.143-.357t.143-.356t.357-.143zm-3.846-8.084V7H5.615q-.269 0-.442.173T5 7.616V8q0 1.123.762 1.953q.761.83 1.892.963m4.35 3.353q1.38 0 2.342-.965q.962-.964.962-2.343V5.616q0-.27-.174-.443Q14.962 5 14.692 5H9.308q-.27 0-.442.173q-.174.173-.174.443v5.346q0 1.378.966 2.343q.967.964 2.347.964m4.341-3.353q1.131-.133 1.893-.963Q19 9.123 19 8v-.385q0-.269-.173-.442T18.385 7h-2.039zM12 9.635" />
+    </svg>
+    Currently Leading
+  </h2>
 
   <!-- <div class="flex items-end justify-center space-x-4 pt-4">
     <div v-for="(item, index) in sortedLeaderboard" :key="index" :class="`bg-gray-300 text-gray-800 w-40 flex flex-col items-center justify-end rounded-t-lg shadow-lg ${index === 0 ? 'h-72' : index === 1 ? 'h-60' : 'h-48'
@@ -68,8 +68,9 @@
       </Tooltip>
     </TooltipProvider>
   </div> -->
-  <div class="flex justify-center mb-4">
-  <img src="@/assets/images/podium.svg" alt="Podium" class=" md:w-1/3 md:h-1/3 sm:w-1/2 sm:h1/2" />
+  
+  <div v-if="!showSkeleton" class="flex justify-center py-10">
+    <img src="@/assets/images/podium.svg" alt="Podium" class=" md:w-1/3 md:h-1/3 sm:w-1/2 sm:h1/2" />
   </div>
   <div v-if="showSkeleton" class="flex flex-col items-center space-y-4">
     <Card v-for="n in 3" :key="n" class="flex items-center space-x-4 w-96 px-4 py-4">
@@ -81,16 +82,11 @@
     </Card>
   </div>
   <div v-if="!showSkeleton" class="flex flex-col items-center space-y-4">
-    <Card
-      @click="openUrl(item.url)"
-      v-for="(item, index) in sortedLeaderboard"
-      :key="index"
+    <Card @click="openUrl(item.url)" v-for="(item, index) in sortedLeaderboard" :key="index"
       :class="`flex items-center bg-white rounded-lg p-5 w-96 animate-fadeIn cursor-pointer`"
-      :style="{ animationDelay: `${index * 0.2}s` }"
-    >
+      :style="{ animationDelay: `${index * 0.2}s` }">
       <div
-        :class="`w-10 h-10 rounded-full text-white flex items-center justify-center text-xl font-bold mr-4 ${index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-500' : 'bg-yellow-900'}`"
-      >
+        :class="`w-10 h-10 rounded-full text-white flex items-center justify-center text-xl font-bold mr-4 ${index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-500' : 'bg-yellow-900'}`">
         {{ index + 1 }}
       </div>
       <div class="text-gray-800 font-medium">{{ item.url }}</div>
