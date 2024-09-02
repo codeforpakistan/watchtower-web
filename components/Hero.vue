@@ -28,9 +28,9 @@
         Watchtower monitors and analyzes government websites to ensure top performance, accessibility, and transparency.
       </p>
       <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <Button size="lg" class="rounded-full" @click="$router.push('/performance')">Get Started</Button>
-        <Button size="lg" class="rounded-full" variant="outline" @click="$router.push('/performance')">
-          More Info
+        <Button size="lg" class="rounded-full" @click="$router.push('/performance')">All Data</Button>
+        <Button size="lg" class="rounded-full" variant="outline" @click="$router.push('/about')">
+          About
         </Button>
       </div>
     </div>
