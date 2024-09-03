@@ -25,7 +25,7 @@
         <span class="text-primary ml-2">Governance with Vigilance</span>
       </p>
       <p class="leading-7 [&:not(:first-child)]:mt-6">
-        Watchtower monitors and analyzes government websites to ensure top performance, accessibility, and transparency.
+        Watchtower monitors and analyzes government websites to ensure top performance and accessibility, and speed.
       </p>
       <div class="mt-6 flex flex-col sm:flex-row gap-3">
         <Button size="lg" class="rounded-full" @click="$router.push('/performance')">All Data</Button>

@@ -23,6 +23,17 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-12 gap-10 justify-items-center mt-6 md:px-64 py-10">
                 <div class="flex flex-col items-center">
+                    <img src="@/assets/images/team/shaji.jpeg" alt="Avatar 1" class="rounded-full w-24 h-24 object-cover">
+                    <p class="mt-2 text-lg font-semibold">Shaji</p>
+                    <a href="https://codeforpakistan.org/about/people/shaji-ahmed" target="_blank" class="flex inline text-gray-600 pt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 1200 1200">
+                            <path fill="#e11d47"
+                                d="M600 0C268.629 0 0 268.629 0 600s268.629 600 600 600s600-268.629 600-600S931.371 0 600 0M281.154 301.634h637.653v596.732H281.154zm78.611 77.963V820.44h480.471V379.597zm52.393 56.231H786.55v195.479H412.158zm0 229.369h106.041v106.041H412.158zm134.156 0h106.078v106.041H546.314zm134.157 0H786.55v106.041H680.471z" />
+                        </svg>
+                        &nbsp;schajee
+                    </a>
+                </div>
+                <div class="flex flex-col items-center">
                     <img src="@/assets/images/team/boss.jpeg" alt="Avatar 1" class="rounded-full w-24 h-24 object-cover">
                     <p class="mt-2 text-lg font-semibold">Ali Raza</p>
                     <a href="https://aliirz.com/" target="_blank" class="flex inline text-gray-600 pt-2">
@@ -33,6 +44,7 @@
                         &nbsp;aliirz
                     </a>
                 </div>
+                
                 <div class="flex flex-col items-center">
                     <img src="@/assets/images/team/talha.jpeg" alt="Avatar 2" class="rounded-full w-24 h-24 object-cover">
                     <p class="mt-2 text-lg font-semibold">Talha Ashraf</p>
