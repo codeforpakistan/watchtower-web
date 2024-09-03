@@ -22,6 +22,7 @@
                 Contributors
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-12 gap-10 justify-items-center mt-6 md:px-64 py-10">
+                
                 <div class="flex flex-col items-center">
                     <img src="@/assets/images/team/shaji.jpeg" alt="Avatar 1" class="rounded-full w-24 h-24 object-cover">
                     <p class="mt-2 text-lg font-semibold">Shaji</p>
@@ -31,6 +32,28 @@
                                 d="M600 0C268.629 0 0 268.629 0 600s268.629 600 600 600s600-268.629 600-600S931.371 0 600 0M281.154 301.634h637.653v596.732H281.154zm78.611 77.963V820.44h480.471V379.597zm52.393 56.231H786.55v195.479H412.158zm0 229.369h106.041v106.041H412.158zm134.156 0h106.078v106.041H546.314zm134.157 0H786.55v106.041H680.471z" />
                         </svg>
                         &nbsp;schajee
+                    </a>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="@/assets/images/team/muiz.jpeg" alt="Avatar 2" class="rounded-full w-24 h-24 object-cover">
+                    <p class="mt-2 text-lg font-semibold">Muiz</p>
+                    <a href="https://github.com/mbyx" target="_blank" class="flex inline text-gray-600 pt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 32 32">
+                            <path fill="#e11d47"
+                                d="M16 .396c-8.839 0-16 7.167-16 16c0 7.073 4.584 13.068 10.937 15.183c.803.151 1.093-.344 1.093-.772c0-.38-.009-1.385-.015-2.719c-4.453.964-5.391-2.151-5.391-2.151c-.729-1.844-1.781-2.339-1.781-2.339c-1.448-.989.115-.968.115-.968c1.604.109 2.448 1.645 2.448 1.645c1.427 2.448 3.744 1.74 4.661 1.328c.14-1.031.557-1.74 1.011-2.135c-3.552-.401-7.287-1.776-7.287-7.907c0-1.751.62-3.177 1.645-4.297c-.177-.401-.719-2.031.141-4.235c0 0 1.339-.427 4.4 1.641a15.4 15.4 0 0 1 4-.541c1.36.009 2.719.187 4 .541c3.043-2.068 4.381-1.641 4.381-1.641c.859 2.204.317 3.833.161 4.235c1.015 1.12 1.635 2.547 1.635 4.297c0 6.145-3.74 7.5-7.296 7.891c.556.479 1.077 1.464 1.077 2.959c0 2.14-.02 3.864-.02 4.385c0 .416.28.916 1.104.755c6.4-2.093 10.979-8.093 10.979-15.156c0-8.833-7.161-16-16-16z" />
+                        </svg>
+                        &nbsp;mbyx
+                    </a>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="@/assets/images/team/shaharyar.jpeg" alt="Avatar 1" class="rounded-full w-24 h-24 object-cover">
+                    <p class="mt-2 text-lg font-semibold">Shaharyar</p>
+                    <a href="https://www.humblepenguin.dev/" target="_blank" class="flex inline text-gray-600 pt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 1200 1200">
+                            <path fill="#e11d47"
+                                d="M600 0C268.629 0 0 268.629 0 600s268.629 600 600 600s600-268.629 600-600S931.371 0 600 0M281.154 301.634h637.653v596.732H281.154zm78.611 77.963V820.44h480.471V379.597zm52.393 56.231H786.55v195.479H412.158zm0 229.369h106.041v106.041H412.158zm134.156 0h106.078v106.041H546.314zm134.157 0H786.55v106.041H680.471z" />
+                        </svg>
+                        &nbsp;humblepenguinn
                     </a>
                 </div>
                 <div class="flex flex-col items-center">
