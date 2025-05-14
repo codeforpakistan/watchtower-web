@@ -8,8 +8,7 @@
         aria-label="Toggle navigation">
         <span class="[&>svg]:w-7 [&>svg]:stroke-black/50 dark:[&>svg]:stroke-neutral-200">
           <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
-              d="M20 7H4m16 5H4m16 5H4" />
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M20 7H4m16 5H4m16 5H4" />
           </svg>
         </span>
       </button>
@@ -26,27 +25,29 @@
         </div>
         <ul class="list-style-none flex flex-col ps-0 lg:mt-1 lg:flex-row ml-auto mr-24">
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
-            <NuxtLink :class="{ 'underline text-primary': route.path === '/performance', 'text-black dark:text-white lg:px-2': true }"
+            <NuxtLink
+              :class="{ 'underline text-primary': route.path === '/performance', 'text-black dark:text-white lg:px-2': true }"
               aria-current="page" to="/performance">Data</NuxtLink>
           </li>
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
-            <NuxtLink :class="{ 'underline text-primary': route.path === '/about', 'text-black dark:text-white lg:px-2': true }"
+            <NuxtLink
+              :class="{ 'underline text-primary': route.path === '/about', 'text-black dark:text-white lg:px-2': true }"
               aria-current="page" to="/about">About</NuxtLink>
           </li>
-          <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0">
+          <!--<li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0">
             <NuxtLink :class="{ 'underline text-primary': route.path === '/contact', 'text-black dark:text-white lg:px-2': true }"
               aria-current="page" to="/contact">Contact</NuxtLink>
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="flex items-center">
-          <a class="text-gray-800 dark:text-gray-200 mr-4"
-            @click="colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'">
-            <Icon :icon="colorMode.preference === 'dark' ? 'radix-icons:moon' : 'radix-icons:sun'"
-              class="h-[1.2rem] w-[1.2rem]" />
-            <span class="sr-only">Toggle theme</span>
-          </a>
-        </div>
+        <a class="text-gray-800 dark:text-gray-200 mr-4"
+          @click="colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'">
+          <Icon :icon="colorMode.preference === 'dark' ? 'radix-icons:moon' : 'radix-icons:sun'"
+            class="h-[1.2rem] w-[1.2rem]" />
+          <span class="sr-only">Toggle theme</span>
+        </a>
+      </div>
     </div>
   </nav>
 </template>

@@ -20,17 +20,18 @@
         </div>
       </div>
 
-      <p class="text-xl text-muted-foreground inline-flex whitespace-nowrap justify-start mt-4">
+      <p class="text-xl text-muted-foreground mt-4 whitespace-normal">
         Elevating Digital
-        <span class="text-primary ml-2">Governance with Vigilance</span>
+        <span class="text-primary">&nbsp;Governance with Vigilance</span>
       </p>
+
       <p class="leading-7 [&:not(:first-child)]:mt-6">
-        Watchtower monitors and analyzes government websites to ensure top performance, accessibility, and transparency.
+        Watchtower monitors and analyzes government websites to ensure top performance and accessibility, and speed.
       </p>
       <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <Button size="lg" class="rounded-full" @click="$router.push('/performance')">Get Started</Button>
-        <Button size="lg" class="rounded-full" variant="outline" @click="$router.push('/performance')">
-          More Info
+        <Button size="lg" class="rounded-full" @click="$router.push('/performance')">All Data</Button>
+        <Button size="lg" class="rounded-full" variant="outline" @click="$router.push('/about')">
+          About
         </Button>
       </div>
     </div>
