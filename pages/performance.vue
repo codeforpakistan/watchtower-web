@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h2 class="scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0">
+    <h2
+      class="scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0"
+    >
       Gov Websites Performance
     </h2>
 
     <div class="flex-col md:flex">
-
-      <div v-if="showSkeleton" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-8">
+      <div
+        v-if="showSkeleton"
+        class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-8"
+      >
         <div v-for="n in 4" :key="n">
           <Card>
             <Skeleton class="h-24 w-auto bg-muted" />
@@ -22,87 +26,41 @@
       </div>
 
       <div class="flex-1 space-y-4 p-8 pt-6">
-        <!-- <div v-if="!showSkeleton" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-
-        <div class="relative group">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
-          </div>
-          <div
-            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
-            <div class="space-y-2">
-              <p class="text-slate-800 dark:text-slate-200"> Websites being monitored</p>
-              <div class="text-2xl font-bold dark:text-white">
-                75
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="relative group">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
-          </div>
-          <div
-            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
-            <div class="space-y-2">
-              <p class="text-slate-800 dark:text-slate-200"> Websites Down</p>
-              <div class="text-2xl font-bold dark:text-white">
-                23
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="relative group">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
-          </div>
-          <div
-            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
-            <div class="space-y-2">
-              <p class="text-slate-800 dark:text-slate-200"> Websites Below 90 Score</p>
-              <div class="text-2xl font-bold dark:text-white">
-                33
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative group">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
-          </div>
-          <div
-            class="relative px-7 py-6 bg-white dark:bg-gray-800 ring-1 ring-gray-900/5 dark:ring-gray-700 rounded-lg leading-none flex items-top justify-start space-x-6">
-            <div class="space-y-2">
-              <p class="text-slate-800 dark:text-slate-200"> Websites with SSL issues</p>
-              <div class="text-2xl font-bold dark:text-white">
-                12
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
         <Table v-if="!showSkeleton">
           <TableCaption>Last Refreshed: {{ lastRefreshed }}</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead>
-                URL
-              </TableHead>
+              <TableHead> URL </TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Score</TableHead>
-              <TableHead class="text-right">
-                Response Time
-              </TableHead>
+              <TableHead class="text-right"> Response Time </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow v-for="item in leaderboard" :key="item.url">
               <TableCell class="font-medium">{{ item.url }}</TableCell>
               <TableCell>Active</TableCell>
-              <TableCell>{{ item.performanceScore }}</TableCell>
-              <TableCell class="text-right">{{ item.responseTime }} ms</TableCell>
+
+              <!-- Score Circle -->
+              <TableCell>
+                <div
+                  class="circle"
+                  :style="{
+                    '--progress': item.performanceScore * 360 + 'deg',
+                    background: `conic-gradient(${getColor(
+                      item.performanceScore
+                    )} 0deg, ${getColor(item.performanceScore)} ${
+                      item.performanceScore * 360
+                    }deg, #e5e7eb ${item.performanceScore * 360}deg)`,
+                  }"
+                >
+                  <span>{{ (item.performanceScore * 100).toFixed(0) }}%</span>
+                </div>
+              </TableCell>
+
+              <TableCell class="text-right">
+                {{ item.responseTime }} ms
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -112,9 +70,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { db, collection, getDocs, query, where, orderBy, limit, QuerySnapshot } from '../firebaseConfig';
-import { Timestamp } from 'firebase/firestore';
+import { ref, onMounted } from "vue";
+import {
+  db,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  limit,
+  QuerySnapshot,
+} from "../firebaseConfig";
+import { Timestamp } from "firebase/firestore";
 
 interface PerformanceItem {
   url: string;
@@ -128,8 +95,14 @@ interface DocumentData {
 }
 
 const leaderboard = ref<PerformanceItem[]>([]);
-const lastRefreshed = ref<string>('');
+const lastRefreshed = ref<string>("");
 const showSkeleton = ref<boolean>(true);
+
+const getColor = (score: number) => {
+  if (score >= 0.7) return "green";
+  if (score >= 0.4) return "orange";
+  return "red";
+};
 
 // Function to fetch performance data from Firestore
 const fetchPerformanceData = async () => {
@@ -139,27 +112,24 @@ const fetchPerformanceData = async () => {
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
 
-    // Query to fetch the top 3 documents based on performanceScore and responseTime
     const q = query(
-      collection(db, 'performanceData'),
-      where('timestamp', '>=', startOfMonth),
-      where('timestamp', '<=', endOfMonth),
-      orderBy('performanceScore', 'desc'),
-      orderBy('responseTime', 'asc'),
+      collection(db, "performanceData"),
+      where("timestamp", ">=", startOfMonth),
+      where("timestamp", "<=", endOfMonth),
+      orderBy("performanceScore", "desc"),
+      orderBy("responseTime", "asc"),
       limit(200)
     );
 
     const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(q);
 
-    // Map the fetched documents to the PerformanceItem interface
-    leaderboard.value = querySnapshot.docs.map(doc => ({
+    leaderboard.value = querySnapshot.docs.map((doc) => ({
       url: doc.data().url,
       performanceScore: doc.data().performanceScore,
       responseTime: doc.data().responseTime,
       timestamp: doc.data().timestamp,
     }));
 
-    // Update the last refreshed date
     lastRefreshed.value = new Date().toLocaleDateString();
     showSkeleton.value = false;
   } catch (e) {
@@ -168,8 +138,25 @@ const fetchPerformanceData = async () => {
   }
 };
 
-// Fetch performance data when the component is mounted
 onMounted(() => {
   fetchPerformanceData();
 });
 </script>
+
+<style scoped>
+.circle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+.circle span {
+  position: absolute;
+}
+</style>
