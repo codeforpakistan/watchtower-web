@@ -14,6 +14,11 @@ export default defineNuxtConfig({
      */
     componentDir: "./components/ui",
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1',
+    },
+  },
   // workaround for Nuxt bug, see https://github.com/nuxt/nuxt/issues/27558#issuecomment-2166231479
   hooks: {
     "vite:extendConfig": (config) => {
