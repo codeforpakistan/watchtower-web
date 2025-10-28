@@ -137,7 +137,7 @@
         </Card>
       </div>
 
-      <!-- Shame Wall Stats -->
+      <!-- Needs Improvement Stats -->
       <Card>
         <CardHeader>
           <CardTitle>⚠️ Websites Needing Attention</CardTitle>
@@ -145,17 +145,17 @@
         <CardContent>
           <div class="grid gap-4 md:grid-cols-3">
             <div>
-              <p class="text-sm text-muted-foreground mb-2">Total Shame Worthy</p>
-              <div class="text-3xl font-bold text-red-600">{{ stats.shame_wall.total_shame_worthy }}</div>
-              <p class="text-sm text-muted-foreground mt-1">{{ stats.shame_wall.shame_percentage }}% of sites</p>
+              <p class="text-sm text-muted-foreground mb-2">Total Needs Improvement</p>
+              <div class="text-3xl font-bold text-red-600">{{ stats.needs_improvement.total_needs_improvement }}</div>
+              <p class="text-sm text-muted-foreground mt-1">{{ stats.needs_improvement.improvement_percentage }}% of sites</p>
             </div>
             <div>
               <p class="text-sm text-muted-foreground mb-2">SSL Issues</p>
-              <div class="text-3xl font-bold text-red-600">{{ stats.shame_wall.ssl_shame_worthy }}</div>
+              <div class="text-3xl font-bold text-red-600">{{ stats.needs_improvement.ssl_needs_improvement }}</div>
             </div>
             <div class="flex items-center">
-              <Button variant="destructive" @click="navigateTo('/shame')">
-                View Shame Wall →
+              <Button variant="destructive" @click="navigateTo('/needs-improvement')">
+                View Sites Needing Improvement →
               </Button>
             </div>
           </div>
@@ -211,7 +211,7 @@
                   <div>
                     <p class="font-semibold">{{ site.name }}</p>
                     <p class="text-xs text-muted-foreground">{{ site.url }}</p>
-                    <span v-if="site.shame_worthy" class="text-xs px-2 py-0.5 rounded bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                    <span v-if="site.needs_improvement" class="text-xs px-2 py-0.5 rounded bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
                       ⚠️ Issues
                     </span>
                   </div>

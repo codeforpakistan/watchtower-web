@@ -88,8 +88,8 @@
                   <span v-if="entry.government_level" class="text-xs px-2 py-1 rounded bg-muted">
                     {{ entry.government_level }}
                   </span>
-                  <span v-if="entry.latest_report?.shame_worthy" class="text-xs px-2 py-1 rounded bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
-                    ⚠️ Shame Worthy
+                  <span v-if="entry.latest_report?.needs_improvement" class="text-xs px-2 py-1 rounded bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                    ⚠️ Needs Improvement
                   </span>
                 </div>
               </div>

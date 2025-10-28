@@ -74,10 +74,10 @@ export const useWatchtowerApi = () => {
   }
 
   /**
-   * Fetch shame wall
+   * Fetch sites that need improvement
    */
-  const getShameWall = async (params?: { severity?: 'critical' | 'high' | 'medium'; limit?: number }) => {
-    return await $fetch(`${baseURL}/leaderboard/shame-wall`, {
+  const getNeedsImprovement = async (params?: { severity?: 'critical' | 'high' | 'medium'; limit?: number }) => {
+    return await $fetch(`${baseURL}/leaderboard/needs-improvement`, {
       params,
     })
   }
@@ -104,7 +104,7 @@ export const useWatchtowerApi = () => {
     getLeaderboard,
     getTopPerformers,
     getBottomPerformers,
-    getShameWall,
+    getNeedsImprovement,
     getStatistics,
     getSummary,
   }

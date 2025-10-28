@@ -36,8 +36,8 @@
           </li>
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
             <NuxtLink
-              :class="{ 'underline text-primary': route.path === '/shame', 'text-black dark:text-white lg:px-2': true }"
-              aria-current="page" to="/shame">Shame Wall</NuxtLink>
+              :class="{ 'underline text-primary': route.path === '/needs-improvement', 'text-black dark:text-white lg:px-2': true }"
+              aria-current="page" to="/needs-improvement">Needs Improvement</NuxtLink>
           </li>
           <li class="my-4 ps-2 lg:my-0 lg:pe-1 lg:ps-2">
             <NuxtLink

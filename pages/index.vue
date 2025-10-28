@@ -27,9 +27,9 @@
           icon="📊"
         />
         <StatCard
-          title="Shame Worthy"
-          :value="stats?.shame_wall?.total_shame_worthy || 0"
-          :subtitle="`${stats?.shame_wall?.shame_percentage || 0}% of sites`"
+          title="Needs Improvement"
+          :value="stats?.needs_improvement?.total_needs_improvement || 0"
+          :subtitle="`${stats?.needs_improvement?.improvement_percentage || 0}% of sites`"
           icon="⚠️"
         />
         <StatCard
@@ -136,8 +136,8 @@
           <Button size="lg" @click="navigateTo('/leaderboard')">
             View Full Leaderboard
           </Button>
-          <Button size="lg" variant="destructive" @click="navigateTo('/shame')">
-            View Shame Wall
+          <Button size="lg" variant="destructive" @click="navigateTo('/needs-improvement')">
+            View Sites Needing Improvement
           </Button>
           <Button size="lg" variant="outline" @click="navigateTo('/dashboard')">
             View Dashboard
