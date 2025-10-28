@@ -27,8 +27,8 @@
               <span v-if="website.website.government_level" class="text-sm px-3 py-1 rounded-full bg-muted">
                 {{ website.website.government_level }}
               </span>
-              <span v-if="latestReport.shame_worthy" class="text-sm px-3 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
-                ⚠️ Shame Worthy
+              <span v-if="latestReport.needs_improvement" class="text-sm px-3 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+                ⚠️ Needs Improvement
               </span>
             </div>
           </div>
