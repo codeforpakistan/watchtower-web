@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h2 class="scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0">
+    <h2
+      class="scroll-m-20 text-3xl font-bold tracking-tight transition-colors first:mt-0"
+    >
       Gov Websites Performance
     </h2>
 
     <div class="flex-col md:flex">
-
-      <div v-if="showSkeleton" class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-8">
+      <div
+        v-if="showSkeleton"
+        class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-8"
+      >
         <div v-for="n in 4" :key="n">
           <Card>
             <Skeleton class="h-24 w-auto bg-muted" />
@@ -87,22 +91,22 @@
           <TableCaption>Last Refreshed: {{ lastRefreshed }}</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead>
-                URL
-              </TableHead>
+              <TableHead> URL </TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Score</TableHead>
-              <TableHead class="text-right">
-                Response Time
-              </TableHead>
+              <TableHead class="text-right"> Response Time </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow v-for="item in leaderboard" :key="item.url">
               <TableCell class="font-medium">{{ item.url }}</TableCell>
               <TableCell>Active</TableCell>
-              <TableCell>{{ item.performanceScore }}</TableCell>
-              <TableCell class="text-right">{{ item.responseTime }} ms</TableCell>
+              <TableCell
+                >{{ Math.round(item.performanceScore * 100) }}%</TableCell
+              >
+              <TableCell class="text-right"
+                >{{ item.responseTime }} ms</TableCell
+              >
             </TableRow>
           </TableBody>
         </Table>
@@ -112,9 +116,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { db, collection, getDocs, query, where, orderBy, limit, QuerySnapshot } from '../firebaseConfig';
-import { Timestamp } from 'firebase/firestore';
+import { ref, onMounted } from "vue";
+import {
+  db,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  limit,
+  QuerySnapshot,
+} from "../firebaseConfig";
+import { Timestamp } from "firebase/firestore";
 
 interface PerformanceItem {
   url: string;
@@ -128,7 +141,7 @@ interface DocumentData {
 }
 
 const leaderboard = ref<PerformanceItem[]>([]);
-const lastRefreshed = ref<string>('');
+const lastRefreshed = ref<string>("");
 const showSkeleton = ref<boolean>(true);
 
 // Function to fetch performance data from Firestore
@@ -141,18 +154,18 @@ const fetchPerformanceData = async () => {
 
     // Query to fetch the top 3 documents based on performanceScore and responseTime
     const q = query(
-      collection(db, 'performanceData'),
-      where('timestamp', '>=', startOfMonth),
-      where('timestamp', '<=', endOfMonth),
-      orderBy('performanceScore', 'desc'),
-      orderBy('responseTime', 'asc'),
+      collection(db, "performanceData"),
+      where("timestamp", ">=", startOfMonth),
+      where("timestamp", "<=", endOfMonth),
+      orderBy("performanceScore", "desc"),
+      orderBy("responseTime", "asc"),
       limit(200)
     );
 
     const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(q);
 
     // Map the fetched documents to the PerformanceItem interface
-    leaderboard.value = querySnapshot.docs.map(doc => ({
+    leaderboard.value = querySnapshot.docs.map((doc) => ({
       url: doc.data().url,
       performanceScore: doc.data().performanceScore,
       responseTime: doc.data().responseTime,
